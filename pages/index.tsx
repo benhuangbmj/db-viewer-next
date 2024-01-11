@@ -7,9 +7,11 @@ const Home: NextPage = () => {
   const myViewer = useRef()
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => { 
-    if(mounted && myViewer.current) {
-      myViewer.current.schema = schema;
+  useEffect(() => {
+    if(myViewer.current) {
+      myViewer.current.readyPromise.then(() => {
+          myViewer.current.schema = schema;
+      })      
     }
   }, [mounted, myViewer.current]);
 
@@ -19,8 +21,8 @@ const Home: NextPage = () => {
 
   return (
     <main>
-      <h3>Schema Visualizer </h3>
-      <p><a href='https://github.com/ayeressian/db-viewer-component' target='_blank'><i>ayeressian/db-viewer-component</i></a></p>      
+      <h3>Schema Visualizer</h3>
+      <p>with <a href='https://github.com/ayeressian/db-viewer-component' target='_blank'><i>ayeressian/db-viewer-component</i></a></p>      
       { mounted && <db-viewer ref={myViewer}/> }      
     </main>
   )

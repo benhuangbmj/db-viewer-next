@@ -108,6 +108,14 @@
   margin-left: 0.2rem;
 }
 
+.viewer {
+  --viewer-background-color: grey;
+  --table-boarder-color: green;
+  --relation-color: blue;
+  --relation-color-highlight: red;
+  --color: purple
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

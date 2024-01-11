@@ -2,6 +2,7 @@ declare global {
   namespace JSX {
     interface IntrinsicElements {
       "db-viewer": {
+        class: string;
         ref: {
           current: DbViewer;
         };
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
     if(myViewer.current) {
       myViewer.current.schema = schema;
     }
-  }, [mounted, myViewer.current]);
+  }, [mounted]);
 
   useEffect(() => {    
       import('db-viewer-component').then(() => setMounted(true));// dynamic import
@@ -34,7 +35,7 @@ const Home: NextPage = () => {
     <main>
       <h3>Schema Visualizer</h3>
       <p>with <a href='https://github.com/ayeressian/db-viewer-component' target='_blank'><i>ayeressian/db-viewer-component</i></a></p>      
-      { mounted && <db-viewer ref={myViewer}/> }      
+      { mounted && <db-viewer class={styles.viewer} ref={myViewer}/> }      
     </main>
   )
 }

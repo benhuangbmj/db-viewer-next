@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST='{"index.jsx -> db-viewer-component":{"id":3052,"files":["static/chunks/5823c107.af078d25c4114eb3.js"]}}';

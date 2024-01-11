@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "db-viewer-component": "github:benhuangbmj/db-viewer-component#master",
+    "db-viewer-component": "git+https://github.com/benhuangbmj/db-viewer-component.git#master",
     "next": "^14.0.1",
     "react": "^18.2.0",
     "react-dom": "18.2.0",

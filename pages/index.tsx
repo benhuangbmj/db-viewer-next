@@ -1,17 +1,28 @@
-import { NextPage } from 'next'
-//import styles from '../styles/Home.module.css'
-import schema from "./school";
-import React, { useRef, useEffect, useState } from "react";
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "db-viewer": {
+        ref: {
+          current: DbViewer;
+        };
+      };
+    }
+  }
+}
 
-const Home = () => {
-  const myViewer = useRef()
+import type { NextPage } from 'next'
+import styles from '../styles/Home.module.css'
+import schema from "../schema/school";
+import React, { useRef, useEffect, useState } from "react";
+import type DbViewer from 'db-viewer-component';
+
+const Home: NextPage = () => {
+  const myViewer = useRef<DbViewer>()
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     if(myViewer.current) {
-      myViewer.current.readyPromise.then(() => {
-          myViewer.current.schema = schema;
-      })      
+      myViewer.current.schema = schema;
     }
   }, [mounted, myViewer.current]);
 

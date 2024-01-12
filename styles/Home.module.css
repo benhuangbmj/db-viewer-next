@@ -114,6 +114,8 @@
   --relation-color: blue;
   --relation-color-highlight: red;
   --color: purple
+  width: 100vw;
+  height: 100vh;
 }
 
 @media (max-width: 600px) {
